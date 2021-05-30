@@ -157,4 +157,30 @@ return require("packer").startup(function(use)
         -- use {'mattn/webapi-vim', opt = true}
     end
 
+
+    -- NOTE: CUSTOM
+    -- Color
+    use {'folke/tokyonight.nvim', opt = true}
+    require_plugin('tokyonight.nvim')
+
+    -- use { 'wscnd/onedark.nvim' , opt = true}
+    -- require_plugin('onedark.nvim')
+
+    -- XP
+    use { 'ray-x/lsp_signature.nvim'}                      -- show function signature
+    require_plugin('ray-x/lsp_signature.nvim')
+
+    -- MISC
+    use {'marcushwz/nvim-workbench', opt = true}             -- open md file to manage to-dos list
+    require_plugin('nvim-workbench')
+
+    use {'ethanholz/nvim-lastplace', opt = true}             -- save file cursor position
+    require_plugin('nvim-lastplace')
+
+    use {'folke/todo-comments.nvim', opt = true,
+        lock= true, requires = "nvim-lua/plenary.nvim"}             -- show todo comments
+    require_plugin('todo-comments.nvim')
+
+    use {'tpope/vim-surround', opt = true}                   -- manage matching words/symbols
+    require_plugin('vim-surround')
 end)
