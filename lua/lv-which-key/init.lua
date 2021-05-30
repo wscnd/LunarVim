@@ -191,13 +191,18 @@ local mappings = {
         l = {"<cmd>Trouble loclist<cr>", "Loclist"},
         q = {"<cmd>Trouble quickfix<cr>", "Quickfix"},
         r = {"<cmd>Trouble lsp_references<cr>", "LSP References"},
+        m = {"<cmd>MarkdownPreview<cr>", "MarkdownPreview Start"},
+        M = {"<cmd>MarkdownPreviewStop<cr>", "MarkdownPreview Stop"},
     },
 
     v = {
         name = "+Vimlociraptor",
         l = {"<cmd>:lua __fterm_lazygit()<CR>", "lazygit"},
+        c = {"<cmd>:Codi!!<CR>", "Codi scratchpad"},
+        C = {"<cmd>:Codi!<CR>", "Codi Stop"},
         ["t"] = "Terminal",
         s = {"<cmd>:luafile %<CR>", "Source % lua file"},
+
     },
 
     -- TODO: Plugin Workbench-vim

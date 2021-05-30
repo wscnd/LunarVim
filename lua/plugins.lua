@@ -123,7 +123,7 @@ return require("packer").startup(function(use)
 
     -- Extras
     if O.extras then
-        use {'metakirby5/codi.vim', opt = true}
+        use {'metakirby5/codi.vim'}
         require_plugin('codi.vim')
         use {'iamcco/markdown-preview.nvim', run = 'cd app && npm install', opt = true}
         require_plugin('markdown-preview.nvim')
