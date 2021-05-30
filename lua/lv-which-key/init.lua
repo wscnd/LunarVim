@@ -194,6 +194,7 @@ local mappings = {
     },
 
     -- TODO: Plugin Workbench-vim
+    -- FIX add these functions to plugin
     w = {
         name = "+WorkBench",
         a = {"<cmd>WorkbenchAddCheckbox<cr>", "Add Checkbox"},
