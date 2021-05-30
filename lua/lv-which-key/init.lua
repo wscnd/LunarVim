@@ -166,14 +166,14 @@ local mappings = {
     -- NOTE: CUSTOM
     b = {
         name = "+Buffer",
-        x = {"<cmd>BufferClose<cr>", "Close"},
-        X = {"<cmd>BufferCloseAllButCurrent<cr>", "Close All but Current"},
-        o = {"<cmd>BufferOrderByLanguage<cr>", "Order by Language"},
-        g = {"<cmd>BufferPick<cr>", "Go"},
+        -- x = {"<cmd>BufferClose<cr>", "Close"},
+        -- X = {"<cmd>BufferCloseAllButCurrent<cr>", "Close All but Current"},
+        p = {"<cmd>BufferLinePick<cr>", "Pick"},
         l = {"<cmd>Telescope buffers<cr>", "Buffer List"},
-        O = {"<cmd>BufferOrderByDirectory<cr>", "Order By Directory"},
-        k = {"<cmd>BufferMoveNext<cr>", "Move Left"},
-        j = {"<cmd>BufferMovePrevious<cr>", "Move Right"},
+        o = {"<cmd>BufferLineSortByExtension<cr>", "Order by Language"},
+        O = {"<cmd>BufferLineSortByDirectory<cr>", "Order By Directory"},
+        k = {"<cmd>BufferLineMoveNext<cr>", "Move Left"},
+        j = {"<cmd>BufferLineMovePrev<cr>", "Move Right"},
     },
 
     f = {
@@ -191,8 +191,6 @@ local mappings = {
         l = {"<cmd>Trouble loclist<cr>", "Loclist"},
         q = {"<cmd>Trouble quickfix<cr>", "Quickfix"},
         r = {"<cmd>Trouble lsp_references<cr>", "LSP References"},
-        m = {"<cmd>MarkdownPreview<cr>", "MarkdownPreview Start"},
-        M = {"<cmd>MarkdownPreviewStop<cr>", "MarkdownPreview Stop"},
     },
 
     v = {
@@ -215,6 +213,8 @@ local mappings = {
         c = {"<cmd>WorkbenchCheckboxToggle<cr>", "Checkbox Toggle"},
         l = {"<cmd>WorkbenchToggle<cr>", "Workbench Toggle"},
         p = {"<cmd>WorkbenchProjectToggle<cr>", "Project Toggle"},
+        m = {"<cmd>MarkdownPreview<cr>", "MarkdownPreview Start"},
+        M = {"<cmd>MarkdownPreviewStop<cr>", "MarkdownPreview Stop"},
     },
 
 
@@ -223,7 +223,7 @@ local mappings = {
 -- fterm
 vim.api.nvim_set_keymap('n', '<leader>vt', '<CMD>lua require("FTerm").toggle()<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('t', '<leader>vt', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('i', '<leader>vz', '<C-O>:set spell!<cr>',{ noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>vz', '<C-O>:set spell!<cr>',{ noremap = true, silent = true })
 
 -- rename with f2
 vim.api.nvim_set_keymap('n', '<F2>', '<cmd>Lspsaga rename<cr>', { noremap = true, silent = true })

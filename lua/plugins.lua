@@ -85,7 +85,7 @@ return require("packer").startup(function(use)
 
     -- Status Line and Bufferline
     use {"glepnir/galaxyline.nvim", opt = true}
-    use {"romgrk/barbar.nvim", opt = true}
+    -- use {"romgrk/barbar.nvim", opt = true} -- TODO: barbar
 
     -- Zen Mode
     use {"Pocco81/TrueZen.nvim", opt = true}
@@ -116,7 +116,7 @@ return require("packer").startup(function(use)
     require_plugin("nvcode-color-schemes.vim")
     require_plugin("nvim-web-devicons")
     require_plugin("galaxyline.nvim")
-    require_plugin("barbar.nvim")
+    -- require_plugin("barbar.nvim")  -- TODO: barbar
     require_plugin('lsp-rooter.nvim')
     require_plugin("TrueZen.nvim")
     require_plugin("nvim-ts-context-commentstring")
@@ -188,6 +188,10 @@ return require("packer").startup(function(use)
     use {'sindrets/diffview.nvim', opt = true}               -- show git diff <leader>gd
     require_plugin('diffview.nvim')
 
-    use {'kosayoda/nvim-lightbulb', opt = true}              -- show lightbulb in files
-    require_plugin('nvim-lightbulb')
+    -- use {'kosayoda/nvim-lightbulb', opt = true}              -- show lightbulb in files
+    -- require_plugin('nvim-lightbulb')
+
+    use {'akinsho/nvim-bufferline.lua', opt = true }
+    require_plugin('nvim-bufferline.lua')
+
 end)
