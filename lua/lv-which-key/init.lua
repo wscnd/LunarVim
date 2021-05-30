@@ -194,6 +194,8 @@ local mappings = {
         l = {"<cmd>Trouble loclist<cr>", "Loclist"},
         q = {"<cmd>Trouble quickfix<cr>", "Quickfix"},
         r = {"<cmd>Trouble lsp_references<cr>", "LSP References"},
+        m = {"<cmd>MarkdownPreview<cr>", "MarkdownPreview Start"},
+        M = {"<cmd>MarkdownPreviewStop<cr>", "MarkdownPreview Stop"},
     },
 
     v = {
