@@ -201,6 +201,7 @@ local mappings = {
         c = {"<cmd>:Codi!!<CR>", "Codi scratchpad"},
         C = {"<cmd>:Codi!<CR>", "Codi Stop"},
         ["t"] = "Terminal",
+        ["z"] = "Spell Toggle",
         s = {"<cmd>:luafile %<CR>", "Source % lua file"},
 
     },
@@ -222,7 +223,7 @@ local mappings = {
 -- fterm
 vim.api.nvim_set_keymap('n', '<leader>vt', '<CMD>lua require("FTerm").toggle()<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('t', '<leader>vt', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', { noremap = true, silent = true })
-
+vim.api.nvim_set_keymap('i', '<leader>vz', '<C-O>:set spell!<cr>',{ noremap = true, silent = true })
 
 -- rename with f2
 vim.api.nvim_set_keymap('n', '<F2>', '<cmd>Lspsaga rename<cr>', { noremap = true, silent = true })
