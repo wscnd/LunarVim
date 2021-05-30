@@ -99,6 +99,8 @@ vim.api.nvim_set_keymap('n', '<C-s>', ':w<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '0', "getline('.')[0 : col('.') - 2] =~# '^\\s\\+$' ? '0' : '^'", {silent = true, noremap = true, expr = true})
 
 -- FIX: works?
+-- commentary
+vim.api.nvim_set_keymap('n', 'gcc', ":lua require('ts_context_commentstring.internal').update_commentstring()<cr>", {silent = true, noremap = true, expr = true})
 -- vim.api.nvim_set_keymap('n', '<A-r>', ':bufdo :e!<cr>', {noremap = true, silent = true})
 -- vim.api.nvim_set_keymap('n', '<A-r>', ':checktime<cr>', {noremap = true, silent = true})
 
