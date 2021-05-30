@@ -193,6 +193,13 @@ local mappings = {
         r = {"<cmd>Trouble lsp_references<cr>", "LSP References"},
     },
 
+    v = {
+        name = "+Vimlociraptor",
+        l = {"<cmd>:lua __fterm_lazygit()<CR>", "lazygit"},
+        ["t"] = "Terminal",
+        s = {"<cmd>:luafile %<CR>", "Source % lua file"},
+    },
+
     -- TODO: Plugin Workbench-vim
     -- FIX add these functions to plugin
     w = {
@@ -204,7 +211,16 @@ local mappings = {
         p = {"<cmd>WorkbenchProjectToggle<cr>", "Project Toggle"},
     },
 
+
 }
+
+-- fterm
+vim.api.nvim_set_keymap('n', '<leader>vt', '<CMD>lua require("FTerm").toggle()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('t', '<leader>vt', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', { noremap = true, silent = true })
+
+
+-- rename with f2
+vim.api.nvim_set_keymap('n', '<F2>', '<cmd>Lspsaga rename<cr>', { noremap = true, silent = true })
 
 local wk = require("which-key")
 wk.register(mappings, opts)

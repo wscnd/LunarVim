@@ -6,7 +6,7 @@ vim.o.title = true
 TERMINAL = vim.fn.expand('$TERMINAL')
 vim.cmd('let &titleold="'..TERMINAL..'"')
 vim.o.titlestring="%<%F%=%l/%L - nvim"
-vim.wo.wrap = O.wrap_lines -- Display long lines as just one line
+vim.wo.wrap = true --O.wrap_lines -- Display long lines as just one line
 vim.cmd('set whichwrap+=<,>,[,],h,l') -- move to next line with theses keys
 vim.cmd('syntax on') -- syntax highlighting
 vim.o.pumheight = 10 -- Makes popup menu smaller
@@ -54,6 +54,7 @@ vim.cmd('let g:loaded_netrw = 1')
 vim.cmd('let g:loaded_netrwPlugin = 1')
 
 -- vim.o.guifont = "JetBrains\\ Mono\\ Regular\\ Nerd\\ Font\\ Complete"
+vim.cmd('set tw=120')
 vim.cmd('set list')
 vim.cmd('set listchars=eol:↵,nbsp:_,tab:>-,trail:~,extends:>,precedes:<')
 vim.cmd('set clipboard+=unnamedplus')

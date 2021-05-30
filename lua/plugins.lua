@@ -133,7 +133,7 @@ return require("packer").startup(function(use)
         require_plugin('dial.nvim')
         use {'nacro90/numb.nvim', opt = true}
         require_plugin('numb.nvim')
-        use {'turbio/bracey.vim', opt = true}
+        use {'turbio/bracey.vim', opt = true, run = 'npm install --prefix server'}
         require_plugin('bracey.vim')
         use {'phaazon/hop.nvim', opt = true}
         require_plugin('hop.nvim')
@@ -187,4 +187,7 @@ return require("packer").startup(function(use)
     -- GIT
     use {'sindrets/diffview.nvim', opt = true}               -- show git diff <leader>gd
     require_plugin('diffview.nvim')
+
+    use {'kosayoda/nvim-lightbulb', opt = true}              -- show lightbulb in files
+    require_plugin('nvim-lightbulb')
 end)
