@@ -14,7 +14,7 @@ O = {
     shell = 'bash',
 	timeoutlen = 100,
     nvim_tree_disable_netrw = 0,
-    extras = false,
+    extras = true,
 
     -- @usage pass a table with your desired languages
     treesitter = {
