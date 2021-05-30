@@ -183,4 +183,8 @@ return require("packer").startup(function(use)
 
     use {'tpope/vim-surround', opt = true}                   -- manage matching words/symbols
     require_plugin('vim-surround')
+
+    -- GIT
+    use {'sindrets/diffview.nvim', opt = true}               -- show git diff <leader>gd
+    require_plugin('diffview.nvim')
 end)
