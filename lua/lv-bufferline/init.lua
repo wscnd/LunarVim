@@ -29,6 +29,32 @@ require('bufferline').setup{
             end
             return s
         end,
+        custom_areas = {
+            right = function()
+                local result = {}
+                local error = vim.lsp.diagnostic.get_count(0, [[Error]])
+                local warning = vim.lsp.diagnostic.get_count(0, [[Warning]])
+                local info = vim.lsp.diagnostic.get_count(0, [[Information]])
+                local hint = vim.lsp.diagnostic.get_count(0, [[Hint]])
+
+                if error ~= 0 then
+                    result[1] = {text = "  " .. error, guifg = "#EC5241", guibg = "#1D202F"}
+                end
+
+                if warning ~= 0 then
+                    result[2] = {text = "  " .. warning, guifg = "#EFB839", guibg = "#1D202F"}
+                end
+
+                if hint ~= 0 then
+                    result[3] = {text = "   " .. hint, guifg = "#A3BA5E", guibg = "#1D202F"}
+                end
+
+                if info ~= 0 then
+                    result[4] = {text = "  " .. info, guifg = "#7EA9A7", guibg = "#1D202F"}
+                end
+                return result
+            end
+        },
         -- NOTE: this will be called a lot so don't do any heavy processing here
         custom_filter = function(buf_number)
             -- filter out filetypes you don't want to see
@@ -48,7 +74,7 @@ require('bufferline').setup{
         offsets = {{filetype = "NvimTree", text = "File Explorer", text_align = "left" --[["left" | "]center" | "right"]] }} ,
         show_buffer_icons = true, -- disable filetype icons for buffers
         show_buffer_close_icons = true,
-        show_close_icon = true,
+        show_close_icon = false,
         show_tab_indicators = true ,
         persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
         -- can also be a table containing 2 custom separators

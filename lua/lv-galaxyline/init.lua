@@ -13,7 +13,7 @@ local colors = {
     orange = '#FF8800',
     purple = '#C586C0',
     magenta = '#D16D9E',
-    grey = '#858585',
+    grey = '#ACACAC',
     blue = '#569CD6',
     vivid_blue = '#4FC1FF',
     light_blue = '#9CDCFE',
@@ -107,14 +107,13 @@ table.insert(gls.left, {
     }
 })
 
-table.insert(gls.right, {
-    DiagnosticError = {provider = 'DiagnosticError', icon = '  ', highlight = {colors.error_red, colors.bg}}
-})
-table.insert(gls.right, {DiagnosticWarn = {provider = 'DiagnosticWarn', icon = '  ', highlight = {colors.orange, colors.bg}}})
-
-table.insert(gls.right, {
-    DiagnosticHint = {provider = 'DiagnosticHint', icon = '  ', highlight = {colors.vivid_blue, colors.bg}}
-})
+-- table.insert(gls.right, {
+--     DiagnosticError = {provider = 'DiagnosticError', icon = '  ', highlight = {colors.error_red, colors.bg}}
+-- })
+-- table.insert(gls.right, {DiagnosticWarn = {provider = 'DiagnosticWarn', icon = '  ', highlight = {colors.orange, colors.bg}}})
+-- table.insert(gls.right, {
+--     DiagnosticHint = {provider = 'DiagnosticHint', icon = '  ', highlight = {colors.vivid_blue, colors.bg}}
+-- })
 
 table.insert(gls.right, {DiagnosticInfo = {provider = 'DiagnosticInfo', icon = '  ', highlight = {colors.info_yellow, colors.bg}}})
 
