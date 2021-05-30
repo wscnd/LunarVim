@@ -12,6 +12,10 @@ require("which-key").setup {
             nav = true, -- misc bindings to work with windows
             z = true, -- bindings for folds, spelling and others prefixed with z
             g = true -- bindings for prefixed with g
+        },
+        spelling = {
+            enabled = true,
+            suggestions = 20,
         }
     },
     icons = {
@@ -51,10 +55,10 @@ vim.g.mapleader = ' '
 vim.api.nvim_set_keymap('n', '<Leader>h', ':set hlsearch!<CR>', {noremap = true, silent = true})
 
 -- explorer
-vim.api.nvim_set_keymap('n', '<Leader>e', ':NvimTreeToggle<CR>', {noremap = true, silent = true})
+-- vim.api.nvim_set_keymap('n', '<Leader>e', ':NvimTreeToggle<CR>', {noremap = true, silent = true})
 
 -- telescope
-vim.api.nvim_set_keymap('n', '<Leader>f', ':Telescope find_files<CR>', {noremap = true, silent = true})
+-- vim.api.nvim_set_keymap('n', '<Leader>f', ':Telescope find_files<CR>', {noremap = true, silent = true})
 
 -- dashboard
 vim.api.nvim_set_keymap('n', '<Leader>;', ':Dashboard<CR>', {noremap = true, silent = true})
@@ -64,7 +68,7 @@ vim.api.nvim_set_keymap("n", "<leader>/", ":CommentToggle<CR>", {noremap = true,
 vim.api.nvim_set_keymap("v", "<leader>/", ":CommentToggle<CR>", {noremap = true, silent = true})
 
 -- close buffer
-vim.api.nvim_set_keymap("n", "<leader>c", ":BufferClose<CR>", {noremap = true, silent = true})
+-- vim.api.nvim_set_keymap("n", "<leader>c", ":BufferClose<CR>", {noremap = true, silent = true})
 
 -- open projects
 vim.api.nvim_set_keymap('n', '<leader>p', ":lua require'telescope'.extensions.project.project{}<CR>",
@@ -73,9 +77,9 @@ vim.api.nvim_set_keymap('n', '<leader>p', ":lua require'telescope'.extensions.pr
 
 local mappings = {
     ["/"] = "Comment",
-    ["c"] = "Close Buffer",
+    -- ["c"] = "Close Buffer",
     ["e"] = "Explorer",
-    ["f"] = "Find File",
+    -- ["f"] = "Find File",
     ["h"] = "No Highlight",
     ["p"] = "Projects",
     d = {
@@ -98,17 +102,20 @@ local mappings = {
     },
     g = {
         name = "+Git",
-        j = {"<cmd>NextHunk<cr>", "Next Hunk"},
-        k = {"<cmd>PrevHunk<cr>", "Prev Hunk"},
-        p = {"<cmd>PreviewHunk<cr>", "Preview Hunk"},
+        d = {"<cmd>DiffviewOpen<cr>", "Open DiffView"},
+        D = {"<cmd>DiffviewClose<cr>", "Close DiffView"},
+        n = {"<cmd>NextHunk<cr>", "Next Hunk"},
+        p = {"<cmd>PrevHunk<cr>", "Prev Hunk"},
+        k = {"<cmd>PreviewHunk<cr>", "Preview Hunk"},
         r = {"<cmd>ResetHunk<cr>", "Reset Hunk"},
         R = {"<cmd>ResetBuffer<cr>", "Reset Buffer"},
-        s = {"<cmd>StageHunk<cr>", "Stage Hunk"},
+        S = {"<cmd>StageHunk<cr>", "Stage Hunk"},
         u = {"<cmd>UndoStageHunk<cr>", "Undo Stage Hunk"},
-        o = {"<cmd>Telescope git_status<cr>", "Open changed file"},
-        b = {"<cmd>Telescope git_branches<cr>", "Checkout branch"},
-        c = {"<cmd>Telescope git_commits<cr>", "Checkout commit"},
+        s = {"<cmd>Telescope git_status<cr>", "Git Status"},
+        b = {"<cmd>Telescope git_branches<cr>", "Git Branches"},
+        c = {"<cmd>Telescope git_commits<cr>", "Git Commits"},
         C = {"<cmd>Telescope git_bcommits<cr>", "Checkout commit(for current file)"},
+        f = {"<cmd>Telescope git_files<cr>", "Git Files"},
     },
     l = {
         name = "+LSP",
@@ -124,22 +131,25 @@ local mappings = {
         q = {"<cmd>Telescope quickfix<cr>", "Quickfix"},
         r = {"<cmd>Lspsaga rename<cr>", "Rename"},
         t = {"<cmd>LspTypeDefinition<cr>", "Type Definition"},
-        x = {"<cmd>cclose<cr>", "Close Quickfix"},
+        -- x = {"<cmd>cclose<cr>", "Close Quickfix"},
         s = {"<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols"},
         S = {"<cmd>Telescope lsp_workspace_symbols<cr>", "Workspace Symbols"}
     },
     s = {
         name = "+Search",
-        b = {"<cmd>Telescope git_branches<cr>", "Checkout branch"},
         c = {"<cmd>Telescope colorscheme<cr>", "Colorscheme"},
         d = {"<cmd>Telescope lsp_document_diagnostics<cr>", "Document Diagnostics"},
         D = {"<cmd>Telescope lsp_workspace_diagnostics<cr>", "Workspace Diagnostics"},
+        b = {"<cmd>Telescope buffers<cr>", "Buffer List"},
         f = {"<cmd>Telescope find_files<cr>", "Find File"},
+        -- h = {"<cmd>Telescope find_files<cr>", "File History"},
         m = {"<cmd>Telescope marks<cr>", "Marks"},
         M = {"<cmd>Telescope man_pages<cr>", "Man Pages"},
-        r = {"<cmd>Telescope oldfiles<cr>", "Open Recent File"},
-        R = {"<cmd>Telescope registers<cr>", "Registers"},
-        t = {"<cmd>Telescope live_grep<cr>", "Text"}
+        q = {"<cmd>Telescope quickfix<cr>", "Quickfix"},
+        r = {"<cmd>Telescope registers<cr>", "Registers"},
+        t = {"<cmd>TodoTelescope<cr>", "Todos"},
+        W = {"<cmd>Telescope live_grep<cr>", "Word"},
+        w = {"<cmd>lua require('telescope.builtin').grep_string({search= vim.fn.input('   Grep For >  ')})<cr>", "Word"}
     },
     S = {name = "+Session", s = {"<cmd>SessionSave<cr>", "Save Session"}, l = {"<cmd>SessionLoad<cr>", "Load Session"}},
 
@@ -149,7 +159,50 @@ local mappings = {
         s = {"<cmd>TZBottom<cr>", "toggle status line"},
         t = {"<cmd>TZTop<cr>", "toggle tab bar"},
         z = {"<cmd>TZAtaraxis<cr>", "toggle zen"},
-    }
+    },
+
+
+
+    -- NOTE: CUSTOM
+    b = {
+        name = "+Buffer",
+        x = {"<cmd>BufferClose<cr>", "Close"},
+        X = {"<cmd>BufferCloseAllButCurrent<cr>", "Close All but Current"},
+        o = {"<cmd>BufferOrderByLanguage<cr>", "Order by Language"},
+        g = {"<cmd>BufferPick<cr>", "Go"},
+        l = {"<cmd>Telescope buffers<cr>", "Buffer List"},
+        O = {"<cmd>BufferOrderByDirectory<cr>", "Order By Directory"},
+        k = {"<cmd>BufferMoveNext<cr>", "Move Left"},
+        j = {"<cmd>BufferMovePrevious<cr>", "Move Right"},
+    },
+
+    f = {
+        name = "+File",
+        h = {"<cmd>Telescope oldfiles<cr>", "Recent Files"},
+        s = {"<cmd>Telescope find_files<cr>", "Search Files"},
+    },
+
+    -- TODO: Plugin trouble
+    t = {
+        name = "+Trouble",
+        d = {"<cmd>Trouble lsp_workspace_diagnostics<cr>", "Document Diagnostics"},
+        w = {"<cmd>Trouble lsp_document_diagnostics<cr>", "Workspace Diagnostics"},
+        t = {"<cmd>Trouble <cr>", "Trouble"},
+        l = {"<cmd>Trouble loclist<cr>", "Loclist"},
+        q = {"<cmd>Trouble quickfix<cr>", "Quickfix"},
+        r = {"<cmd>Trouble lsp_references<cr>", "LSP References"},
+    },
+
+    -- TODO: Plugin Workbench-vim
+    w = {
+        name = "+WorkBench",
+        a = {"<cmd>WorkbenchAddCheckbox<cr>", "Add Checkbox"},
+        b = {"<cmd>WorkbenchBranchToggle<cr>", "Branch Toggle"},
+        c = {"<cmd>WorkbenchCheckboxToggle<cr>", "Checkbox Toggle"},
+        l = {"<cmd>WorkbenchToggle<cr>", "Workbench Toggle"},
+        p = {"<cmd>WorkbenchProjectToggle<cr>", "Project Toggle"},
+    },
+
 }
 
 local wk = require("which-key")
