@@ -35,6 +35,8 @@ command! DebugStepInto lua require'dap'.step_into()
 command! DebugToggleRepl lua require'dap'.repl.toggle()
 command! DebugGetSession lua require'dap'.session()
 
+
+
 " Available Debug Adapters:
 "   https://microsoft.github.io/debug-adapter-protocol/implementors/adapters/
 " 
@@ -71,3 +73,22 @@ function! QuickFixToggle()
         cclose
     endif
 endfunction
+
+
+
+" NOTE: CUSTOM
+" Workbench plugin mappings for whichkey
+command! WorkbenchAddCheckbox :call markdown#checkbox#toggle(' ')
+" nnoremap <expr> <silent> <Plug>WorkbenchAddCheckbox ":call markdown#checkbox#toggle(' ')<CR>"
+
+command! WorkbenchBranchToggle lua require'workbench'.toggle_branch_workbench()<CR>
+" nnoremap <expr> <silent> <Plug>ToggleBranchWorkbench ":lua require('workbench').toggle_branch_workbench()<CR>"
+
+command! WorkbenchCheckboxToggle :call markdown#checkbox#toggle('x')
+" nnoremap <expr> <silent> <Plug>WorkbenchToggleCheckbox ":call markdown#checkbox#toggle('x')<CR>"
+
+command! WorkbenchToggle lua require'workbench'.toggle_project_workbench()<CR>
+" nnoremap <expr> <silent> <Plug>ToggleWorkbench ":lua require('workbench').toggle_project_workbench()<CR>"
+
+command! WorkbenchProjectToggle lua require'workbench'.toggle_project_workbench()<CR>
+" nnoremap <expr> <silent> <Plug>ToggleProjectWorkbench ":lua require('workbench').toggle_project_workbench()<CR>"
