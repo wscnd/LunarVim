@@ -52,6 +52,7 @@ return require("packer").startup(function(use)
     use {"hrsh7th/nvim-compe", opt = true}
     use {"hrsh7th/vim-vsnip", opt = true}
     use {"rafamadriz/friendly-snippets", opt = true}
+    -- TODO: remove friendly-snippets
 
     -- Treesitter
     use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}

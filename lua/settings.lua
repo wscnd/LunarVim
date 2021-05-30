@@ -17,7 +17,7 @@ vim.o.mouse = "a" -- Enable your mouse
 vim.o.splitbelow = true -- Horizontal splits will automatically be below
 vim.o.termguicolors = true -- set term gui colors most terminals support this
 vim.o.splitright = true -- Vertical splits will automatically be to the right
--- vim.o.t_Co = "256" -- Support 256 colors
+vim.go.t_Co = "256" -- Support 256 colors
 vim.o.conceallevel = 0 -- So that I can see `` in markdown files
 vim.cmd('set ts=4') -- Insert 2 spaces for a tab
 vim.cmd('set sw=4') -- Change the number of space characters inserted for indentation
@@ -43,3 +43,20 @@ vim.cmd('filetype plugin on') -- filetype detection
 vim.o.guifont = "FiraCode Nerd Font:h17"
 
 -- vim.o.guifont = "JetBrains\\ Mono\\ Regular\\ Nerd\\ Font\\ Complete"
+
+
+
+
+-- NOTE: CUSTOM
+vim.wo.cursorcolumn = true -- Enable highlighting of the current line
+vim.cmd('set scrolloff=10')
+vim.cmd('let g:loaded_netrw = 1')
+vim.cmd('let g:loaded_netrwPlugin = 1')
+
+-- vim.o.guifont = "JetBrains\\ Mono\\ Regular\\ Nerd\\ Font\\ Complete"
+vim.cmd('set list')
+vim.cmd('set listchars=eol:↵,nbsp:_,tab:>-,trail:~,extends:>,precedes:<')
+vim.cmd('set clipboard+=unnamedplus')
+vim.cmd([[ let g:clipboard = {    'name': 'win32yank-wsl',    'copy': {       '+': 'win32yank.exe -i --crlf',       '*': 'win32yank.exe -i --crlf',     },    'paste': {       '+': 'win32yank.exe -o --lf',       '*': 'win32yank.exe -o --lf',    },    'cache_enabled': 0,  } ]])
+vim.cmd('set showmatch')
+vim.cmd('set autoread')
