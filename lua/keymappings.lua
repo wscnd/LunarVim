@@ -51,6 +51,7 @@ vim.cmd('inoremap <expr> <c-k> (\"\\<C-p>\")')
 -- fix to get netrw's gx command to work correctly
 vim.api.nvim_set_keymap('n', 'gx', ":call netrw#BrowseX(expand((exists('g:netrw_gx')? g:netrw_gx : '<cfile>')),netrw#CheckIfRemote())<cr>", {noremap = true, silent = true})
 
+-- FIX: works?
 vim.cmd('vnoremap p "0p')
 vim.cmd('vnoremap P "0P')
 -- vim.api.nvim_set_keymap('v', 'p', '"0p', {silent = true})
@@ -70,3 +71,34 @@ vim.cmd('vnoremap P "0P')
 
 -- Toggle the QuickFix window
 vim.api.nvim_set_keymap('', '<C-q>', ':call QuickFixToggle()<CR>', {noremap = true, silent = true})
+
+
+
+-- NOTE: CUSTOM
+
+-- Buffer navigation
+vim.api.nvim_set_keymap('n', '<A-1>', ':BufferGoto 1<CR>', {noremap= true, silent = true})
+vim.api.nvim_set_keymap('n', '<A-2>', ':BufferGoto 2<CR>', {noremap= true, silent = true})
+vim.api.nvim_set_keymap('n', '<A-3>', ':BufferGoto 3<CR>', {noremap= true, silent = true})
+vim.api.nvim_set_keymap('n', '<A-4>', ':BufferGoto 4<CR>', {noremap= true, silent = true})
+vim.api.nvim_set_keymap('n', '<A-5>', ':BufferGoto 5<CR>', {noremap= true, silent = true})
+vim.api.nvim_set_keymap('n', '<A-6>', ':BufferGoto 6<CR>', {noremap= true, silent = true})
+
+-- quickfix navigation
+-- FIX: works?
+-- vim.api.nvim_set_keymap('', '<C-q>', ':call QuickFixToggle()<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<C-j>', ':cnext<CR>', {noremap= true})
+vim.api.nvim_set_keymap('n', '<C-k>', ':cprev<CR>', {noremap= true})
+vim.api.nvim_set_keymap('n', '<A-e>', ':copen<CR>', {noremap= true, silent = true})
+vim.api.nvim_set_keymap('n', '<C-e>', ':cclose<CR>', {noremap= true, silent = true})
+
+-- Alternate way to save?
+vim.api.nvim_set_keymap('n', '<C-s>', ':w<CR>', {noremap = true})
+
+-- swap between 0 and ^ with 0
+vim.api.nvim_set_keymap('n', '0', "getline('.')[0 : col('.') - 2] =~# '^\\s\\+$' ? '0' : '^'", {silent = true, noremap = true, expr = true})
+
+-- FIX: works?
+-- vim.api.nvim_set_keymap('n', '<A-r>', ':bufdo :e!<cr>', {noremap = true, silent = true})
+-- vim.api.nvim_set_keymap('n', '<A-r>', ':checktime<cr>', {noremap = true, silent = true})
+
