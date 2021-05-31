@@ -140,7 +140,7 @@ return require("packer").startup(function(use)
         use {'norcalli/nvim-colorizer.lua', opt = true}
         require_plugin('nvim-colorizer.lua')
         use {'windwp/nvim-spectre', opt = true}
-        require_plugin('windwp/nvim-spectre')
+        require_plugin('nvim-spectre')
         -- folke/todo-comments.nvim
         -- gennaro-tedesco/nvim-jqx
         -- TimUntersberger/neogit
@@ -162,7 +162,6 @@ return require("packer").startup(function(use)
     -- Color
     use {'folke/tokyonight.nvim', opt = true}
     require_plugin('tokyonight.nvim')
-
     use {'akinsho/nvim-bufferline.lua', opt = true }
     require_plugin('nvim-bufferline.lua')
     -- use { 'wscnd/onedark.nvim' , opt = true}
@@ -180,8 +179,6 @@ return require("packer").startup(function(use)
     require_plugin('ray-x/lsp_signature.nvim')
 
     -- MISC
-    use {'marcushwz/nvim-workbench', opt = true}             -- open md file to manage to-dos list
-    require_plugin('nvim-workbench')
     -- use {'marcushwz/nvim-workbench', opt = true}             -- open md file to manage to-dos list
     -- require_plugin('nvim-workbench')
 
