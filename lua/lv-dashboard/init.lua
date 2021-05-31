@@ -22,16 +22,16 @@ vim.g.dashboard_custom_header = O.dashboard.custom_header
 vim.g.dashboard_default_executive = 'telescope'
 
 vim.g.dashboard_custom_section = {
-    a = {description = {'  Find File          '}, command = 'Telescope find_files'},
-    b = {description = {'  Recently Used Files'}, command = 'Telescope oldfiles'},
-    c = {description = {'  Load Last Session  '}, command = 'SessionLoad'},
-    d = {description = {'  Find Word          '}, command = 'Telescope live_grep'},
-    e = {description = {'  Settings           '}, command = ':e '..CONFIG_PATH..'/lv-settings.lua'}
+    u = {description = {'ﭯ  Recently Used Files'}, command = 'Telescope oldfiles'},
+    v = {description = {'  Projects           '}, command = "lua require'telescope'.extensions.project.project{display_type = 'full'}"},
+    w = {description = {'  Load Last Session  '}, command = 'SessionLoad'},
+    x = {description = {'  Find File          '}, command = 'Telescope find_files'},
+    y = {description = {'  Find Word          '}, command = 'Telescope live_grep'},
+    z = {description = {'  Settings           '}, command = ':e '..CONFIG_PATH..'/lv-settings.lua'}
     -- e = {description = {'  Marks              '}, command = 'Telescope marks'}
 }
 
 -- file_browser = {description = {' File Browser'}, command = 'Telescope find_files'},
-
 -- vim.g.dashboard_custom_shortcut = {
 --     a = 'f',
 --     find_word = 'SPC f a',
@@ -42,4 +42,10 @@ vim.g.dashboard_custom_section = {
 -- find_history = 'SPC f h',
 
 -- vim.g.dashboard_session_directory = CACHE_PATH..'/session'
-vim.g.dashboard_custom_footer = O.dashboard.footer
+-- vlet g:dashboard_custom_shortcut_icon['last_session'] = ' '
+-- let g:dashboard_custom_shortcut_icon['find_history'] = 'ﭯ '
+-- let g:dashboard_custom_shortcut_icon['find_file'] = ' '
+-- let g:dashboard_custom_shortcut_icon['new_file'] = ' '
+-- let g:dashboard_custom_shortcut_icon['change_colorscheme'] = ' '
+-- let g:dashboard_custom_shortcut_icon['find_word'] = ' '
+-- let g:dashboard_custom_shortcut_icon['book_marks'] = ' 'im.g.dashboard_custom_footer = O.dashboard.footer
