@@ -18,6 +18,19 @@ local lazygit = term:new():setup({
     }
 })
 
+
+local lazygit_bare = term:new():setup({
+    cmd = "lazygit -w $(git rev-parse --show-toplevel) -d $(git rev-parse --git-dir)",
+    dimensions = {
+        height = 0.9,
+        width = 0.9
+    }
+})
+
 function _G.__fterm_lazygit()
     lazygit:toggle()
+end
+
+function _G.__fterm_lazygitbare()
+    lazygit_bare:toggle()
 end

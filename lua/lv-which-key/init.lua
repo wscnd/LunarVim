@@ -71,7 +71,7 @@ vim.api.nvim_set_keymap("v", "<leader>/", ":CommentToggle<CR>", {noremap = true,
 -- vim.api.nvim_set_keymap("n", "<leader>c", ":BufferClose<CR>", {noremap = true, silent = true})
 
 -- open projects
-vim.api.nvim_set_keymap('n', '<leader>p', ":lua require'telescope'.extensions.project.project{}<CR>",
+vim.api.nvim_set_keymap('n', '<leader>p', ":lua require'telescope'.extensions.project.project{display_type = 'full'}<CR>",
                         {noremap = true, silent = true})
 -- TODO create entire treesitter section
 
@@ -116,6 +116,9 @@ local mappings = {
         c = {"<cmd>Telescope git_commits<cr>", "Git Commits"},
         C = {"<cmd>Telescope git_bcommits<cr>", "Checkout commit(for current file)"},
         f = {"<cmd>Telescope git_files<cr>", "Git Files"},
+        w = {"<cmd>lua require('telescope').extensions.git_worktree.git_worktrees()<cr>", "Git Worktree"},
+        W = {"<cmd>lua require('telescope').extensions.git_worktree.create_git_worktree()<cr>", "Git Worktree"},
+
     },
     l = {
         name = "+LSP",
@@ -196,6 +199,7 @@ local mappings = {
     v = {
         name = "+Vimlociraptor",
         l = {"<cmd>:lua __fterm_lazygit()<CR>", "lazygit"},
+        L = {"<cmd>:lua __fterm_lazygitbare()<CR>", "lazygit bare"},
         c = {"<cmd>:Codi!!<CR>", "Codi scratchpad"},
         C = {"<cmd>:Codi!<CR>", "Codi Stop"},
         ["t"] = "Terminal",

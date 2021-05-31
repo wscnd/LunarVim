@@ -163,8 +163,17 @@ return require("packer").startup(function(use)
     use {'folke/tokyonight.nvim', opt = true}
     require_plugin('tokyonight.nvim')
 
+    use {'akinsho/nvim-bufferline.lua', opt = true }
+    require_plugin('nvim-bufferline.lua')
     -- use { 'wscnd/onedark.nvim' , opt = true}
     -- require_plugin('onedark.nvim')
+
+    -- GIT
+    use {'sindrets/diffview.nvim', opt = true}               -- show git diff <leader>gd
+    require_plugin('diffview.nvim')
+
+    use {'ThePrimeagen/git-worktree.nvim', opt=true}
+    require_plugin('git-worktree.nvim')
 
     -- XP
     use { 'ray-x/lsp_signature.nvim'}                      -- show function signature
@@ -173,6 +182,11 @@ return require("packer").startup(function(use)
     -- MISC
     use {'marcushwz/nvim-workbench', opt = true}             -- open md file to manage to-dos list
     require_plugin('nvim-workbench')
+    -- use {'marcushwz/nvim-workbench', opt = true}             -- open md file to manage to-dos list
+    -- require_plugin('nvim-workbench')
+
+    -- use {'kosayoda/nvim-lightbulb', opt = true}              -- show lightbulb in files
+    -- require_plugin('nvim-lightbulb')
 
     use {'ethanholz/nvim-lastplace', opt = true}             -- save file cursor position
     require_plugin('nvim-lastplace')
@@ -183,15 +197,5 @@ return require("packer").startup(function(use)
 
     use {'tpope/vim-surround', opt = true}                   -- manage matching words/symbols
     require_plugin('vim-surround')
-
-    -- GIT
-    use {'sindrets/diffview.nvim', opt = true}               -- show git diff <leader>gd
-    require_plugin('diffview.nvim')
-
-    -- use {'kosayoda/nvim-lightbulb', opt = true}              -- show lightbulb in files
-    -- require_plugin('nvim-lightbulb')
-
-    use {'akinsho/nvim-bufferline.lua', opt = true }
-    require_plugin('nvim-bufferline.lua')
 
 end)
