@@ -51,9 +51,6 @@ vim.cmd('inoremap <expr> <c-k> (\"\\<C-p>\")')
 -- fix to get netrw's gx command to work correctly
 vim.api.nvim_set_keymap('n', 'gx', ":call netrw#BrowseX(expand((exists('g:netrw_gx')? g:netrw_gx : '<cfile>')),netrw#CheckIfRemote())<cr>", {noremap = true, silent = true})
 
--- FIX: works?
-vim.cmd('vnoremap p "0p')
-vim.cmd('vnoremap P "0P')
 -- vim.api.nvim_set_keymap('v', 'p', '"0p', {silent = true})
 -- vim.api.nvim_set_keymap('v', 'P', '"0P', {silent = true})
 
@@ -85,7 +82,7 @@ vim.api.nvim_set_keymap('n', '<A-5>', ':lua require"bufferline".go_to_buffer(5)<
 vim.api.nvim_set_keymap('n', '<A-6>', ':lua require"bufferline".go_to_buffer(6)<CR>', {noremap= true, silent = true})
 
 -- quickfix navigation
--- FIX: works?
+-- FIX: doesnt works
 -- vim.api.nvim_set_keymap('', '<C-q>', ':call QuickFixToggle()<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<C-j>', ':cnext<CR>', {noremap= true})
 vim.api.nvim_set_keymap('n', '<C-k>', ':cprev<CR>', {noremap= true})
@@ -98,7 +95,7 @@ vim.api.nvim_set_keymap('n', '<C-s>', ':w<CR>', {noremap = true})
 -- swap between 0 and ^ with 0
 vim.api.nvim_set_keymap('n', '0', "getline('.')[0 : col('.') - 2] =~# '^\\s\\+$' ? '0' : '^'", {silent = true, noremap = true, expr = true})
 
--- FIX: works?
+-- FIX: doesnt work
 -- commentary
 vim.api.nvim_set_keymap('n', 'gcc', ":lua require('ts_context_commentstring.internal').update_commentstring()<cr>", {silent = true, noremap = true, expr = true})
 -- vim.api.nvim_set_keymap('n', '<A-r>', ':bufdo :e!<cr>', {noremap = true, silent = true})
