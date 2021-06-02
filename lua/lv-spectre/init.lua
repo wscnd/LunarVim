@@ -22,7 +22,7 @@ require('spectre').setup({
     },
     ['send_to_qf'] = {
         map = "<leader>q",
-        cmd = "<cmd>lua require('spectre.actions').send_to_qf()<CR>",
+        cmd = "<cmd>lua require('spectre.actions').send_to_qf()<CR>:q<CR>:q<CR>:call QuickFixToggle()<CR>",
         desc = "send all item to quickfix"
     },
     ['replace_cmd'] = {

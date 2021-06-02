@@ -52,7 +52,7 @@ vim.api.nvim_set_keymap('n', '<Space>', '<NOP>', {noremap = true, silent = true}
 vim.g.mapleader = ' '
 
 -- no hl
-vim.api.nvim_set_keymap('n', '<Leader>h', ':set hlsearch!<CR>', {noremap = true, silent = true})
+-- vim.api.nvim_set_keymap('n', '<Leader>h', ':set hlsearch!<CR>', {noremap = true, silent = true})
 
 -- explorer
 -- vim.api.nvim_set_keymap('n', '<Leader>e', ':NvimTreeToggle<CR>', {noremap = true, silent = true})
@@ -80,8 +80,9 @@ local mappings = {
     -- ["c"] = "Close Buffer",
     ["e"] = "Explorer",
     -- ["f"] = "Find File",
-    ["h"] = "No Highlight",
+    -- ["h"] = "No Highlight",
     ["p"] = "Projects",
+    ["h"] = "Hop to word",
     d = {
         name = "+Diagnostics",
         t = {"<cmd>TroubleToggle<cr>", "trouble"},
@@ -151,7 +152,8 @@ local mappings = {
         q = {"<cmd>Telescope quickfix<cr>", "Quickfix"},
         r = {"<cmd>Telescope registers<cr>", "Registers"},
         t = {"<cmd>TodoTelescope<cr>", "Todos"},
-        W = {"<cmd>Telescope live_grep<cr>", "Word"},
+        W = {"viw:lua require('spectre').open_visual()<CR>", "Current word"},
+        -- W = {"<cmd>Telescope live_grep<cr>", "Word"},
         w = {"<cmd>lua require('telescope.builtin').grep_string({search= vim.fn.input('   Grep For >  ')})<cr>", "Word"}
     },
     S = {name = "+Session", s = {"<cmd>SessionSave<cr>", "Save Session"}, l = {"<cmd>SessionLoad<cr>", "Load Session"}},
@@ -198,6 +200,7 @@ local mappings = {
 
     v = {
         name = "+Vimlociraptor",
+        h = {"<cmd>:set hlsearch!<CR>", "No Highlight"},
         l = {"<cmd>:lua __fterm_lazygit()<CR>", "lazygit"},
         L = {"<cmd>:lua __fterm_lazygitbare()<CR>", "lazygit bare"},
         m = {"<cmd>:MarkdownPreview<CR>", "lazygit bare"},
@@ -211,7 +214,6 @@ local mappings = {
     },
 
     -- TODO: Plugin Workbench-vim
-    -- FIX add these functions to plugin
     w = {
         name = "+WorkBench",
         a = {"<cmd>WorkbenchAddCheckbox<cr>", "Add Checkbox"},
@@ -230,6 +232,8 @@ local mappings = {
 vim.api.nvim_set_keymap('n', '<leader>vt', '<CMD>lua require("FTerm").toggle()<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('t', '<leader>vt', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>vz', '<C-O>:set spell!<cr>',{ noremap = true, silent = true })
+-- hop to word
+vim.api.nvim_set_keymap('n', '<Leader>h', ':HopPattern<CR>', {noremap = true, silent = true})
 
 -- rename with f2
 vim.api.nvim_set_keymap('n', '<F2>', '<cmd>Lspsaga rename<cr>', { noremap = true, silent = true })
