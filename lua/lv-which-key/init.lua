@@ -235,8 +235,8 @@ vim.api.nvim_set_keymap('n', '<leader>vz', '<C-O>:set spell!<cr>',{ noremap = tr
 -- hop to word
 vim.api.nvim_set_keymap('n', '<Leader>h', ':HopPattern<CR>', {noremap = true, silent = true})
 
--- rename with f2
-vim.api.nvim_set_keymap('n', '<F2>', '<cmd>Lspsaga rename<cr>', { noremap = true, silent = true })
+-- cheatsheet
+vim.api.nvim_set_keymap('n', '<leader>?', ':Cheatsheet!<cr>', { noremap = true, silent = true })
 
 local wk = require("which-key")
 wk.register(mappings, opts)

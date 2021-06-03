@@ -195,4 +195,8 @@ return require("packer").startup(function(use)
     use {'tpope/vim-surround', opt = true}                   -- manage matching words/symbols
     require_plugin('vim-surround')
 
+    -- CHEATSHEET
+    use {'sudormrfbin/cheatsheet.nvim', opt = true}
+    require_plugin('cheatsheet.nvim')
+
 end)

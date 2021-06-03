@@ -72,6 +72,8 @@ vim.api.nvim_set_keymap('', '<C-q>', ':call QuickFixToggle()<CR>', {noremap = tr
 
 
 -- NOTE: CUSTOM
+-- rename with f2
+vim.api.nvim_set_keymap('n', '<f2>', '<cmd>lspsaga rename<cr>', { noremap = true, silent = true })
 
 -- Buffer navigation
 vim.api.nvim_set_keymap('n', '<A-1>', ':lua require"bufferline".go_to_buffer(1)<CR>', {noremap= true, silent = true})
