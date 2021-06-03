@@ -72,5 +72,8 @@ utils.define_augroups({
         {'FileType', 'lspinfo', 'nnoremap <silent> <buffer> q :q<CR>'},
         {'FileType', 'floaterm', 'nnoremap <silent> <buffer> q :q<CR>'},
     },
+    _jsonc = {
+        {'FileType', 'json', 'setlocal filetype=jsonc'},
+    },
     _auto_formatters = auto_formatters
 })
