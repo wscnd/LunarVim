@@ -62,4 +62,6 @@ vim.cmd([[ let g:clipboard = {    'name': 'win32yank-wsl',    'copy': {       '+
 vim.cmd('set showmatch')
 vim.cmd('set autoread')
 vim.cmd('set spelllang=en_us')
+vim.cmd('set guicursor=i:ver1')
+vim.cmd('set guicursor+=a:blinkon1')
 -- vim.cmd("set spell")
