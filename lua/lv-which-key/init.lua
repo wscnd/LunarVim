@@ -210,6 +210,8 @@ local mappings = {
         ["t"] = "Terminal",
         ["z"] = "Spell Toggle",
         s = {"<cmd>:luafile %<CR>", "Source % lua file"},
+        P = {"<cmd>:PackerStatus<CR>", "PackerStatus"},
+        p = {"<cmd>:PackerSync<CR>", "PackerSync"},
 
     },
 
