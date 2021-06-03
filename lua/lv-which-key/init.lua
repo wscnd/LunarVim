@@ -187,6 +187,8 @@ local mappings = {
         name = "+File",
         h = {"<cmd>Telescope oldfiles<cr>", "Recent Files"},
         s = {"<cmd>Telescope find_files<cr>", "Search Files"},
+        m = {"<cmd>MarkdownPreview<cr>", "MarkdownPreview Start"},
+        M = {"<cmd>MarkdownPreviewStop<cr>", "MarkdownPreview Stop"},
     },
 
     -- TODO: Plugin trouble
@@ -222,11 +224,9 @@ local mappings = {
         name = "+WorkBench",
         a = {"<cmd>WorkbenchAddCheckbox<cr>", "Add Checkbox"},
         b = {"<cmd>WorkbenchBranchToggle<cr>", "Branch Toggle"},
-        c = {"<cmd>WorkbenchCheckboxToggle<cr>", "Checkbox Toggle"},
+        t = {"<cmd>WorkbenchCheckboxToggle<cr>", "Checkbox Toggle"},
         l = {"<cmd>WorkbenchToggle<cr>", "Workbench Toggle"},
         p = {"<cmd>WorkbenchProjectToggle<cr>", "Project Toggle"},
-        m = {"<cmd>MarkdownPreview<cr>", "MarkdownPreview Start"},
-        M = {"<cmd>MarkdownPreviewStop<cr>", "MarkdownPreview Stop"},
     },
 
 
