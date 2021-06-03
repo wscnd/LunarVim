@@ -176,11 +176,11 @@ return require("packer").startup(function(use)
 
     -- XP
     use { 'ray-x/lsp_signature.nvim'}                      -- show function signature
-    require_plugin('ray-x/lsp_signature.nvim')
+    require_plugin('lsp_signature.nvim')
 
     -- MISC
-    -- use {'marcushwz/nvim-workbench', opt = true}             -- open md file to manage to-dos list
-    -- require_plugin('nvim-workbench')
+    use {'marcushwz/nvim-workbench', opt = true}             -- open md file to manage to-dos list
+    require_plugin('nvim-workbench')
 
     -- use {'kosayoda/nvim-lightbulb', opt = true}              -- show lightbulb in files
     -- require_plugin('nvim-lightbulb')
