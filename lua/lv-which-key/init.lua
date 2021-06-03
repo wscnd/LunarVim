@@ -152,6 +152,8 @@ local mappings = {
         q = {"<cmd>Telescope quickfix<cr>", "Quickfix"},
         r = {"<cmd>Telescope registers<cr>", "Registers"},
         t = {"<cmd>TodoTelescope<cr>", "Todos"},
+        s = {"<cmd>SymbolsOutline<cr>", "Symbols"},
+        j = {"<cmd>Telescope jumplist<cr>", "Jumplist"},
         W = {"viw:lua require('spectre').open_visual()<CR>", "Current word"},
         -- W = {"<cmd>Telescope live_grep<cr>", "Word"},
         w = {"<cmd>lua require('telescope.builtin').grep_string({search= vim.fn.input('   Grep For >  ')})<cr>", "Word"}
