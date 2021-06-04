@@ -206,4 +206,8 @@ return require("packer").startup(function(use)
     use {'sudormrfbin/cheatsheet.nvim', opt = true}
     require_plugin('cheatsheet.nvim')
 
+    -- Useful stuff
+    use {'tpope/vim-eunuch', opt = true}
+    require_plugin('vim-eunuch')
+
 end)
