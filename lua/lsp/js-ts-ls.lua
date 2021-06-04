@@ -32,6 +32,7 @@ local cfg = {
 }
 
 local on_attach = function(client, bufr)
+    client.resolved_capabilities.document_formatting = false
     require'lsp'.tsserver_on_attach(client, bufr)
     require'lsp_signature'.on_attach(cfg)
     require'lsp_signature'.signature()

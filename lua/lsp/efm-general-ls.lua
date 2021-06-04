@@ -1,3 +1,4 @@
+local lsp = require('lspconfig')
 -- Example configuations here: https://github.com/mattn/efm-langserver
 -- TODO this file needs to be refactored eache lang should be it's own file
 -- python
@@ -59,17 +60,30 @@ if O.sh.formatter == 'shfmt' then table.insert(sh_arguments, shfmt) end
 if O.sh.linter == 'shellcheck' then table.insert(sh_arguments, shellcheck) end
 
 -- tsserver/web javascript react, vue, json, html, css, yaml
-local prettier = {formatCommand = "prettier --stdin-filepath ${INPUT}", formatStdin = true}
+-- local prettier = {formatCommand = "prettier --stdin-filepath ${INPUT}", formatStdin = true}
+local prettier = {
+    formatCommand = ([[
+    ./node_modules/.bin/prettier
+    ${--config-precedence:configPrecedence}
+    ${--tab-width:tabWidth}
+    ${--single-quote:singleQuote}
+    ${--trailing-comma:trailingComma}
+    ]]):gsub(
+    "\n",
+    ""),
+    formatStdin = true
+}
 -- You can look for project scope Prettier and Eslint with e.g. vim.fn.glob("node_modules/.bin/prettier") etc. If it is not found revert to global Prettier where needed.
 -- local prettier = {formatCommand = "./node_modules/.bin/prettier --stdin-filepath ${INPUT}", formatStdin = true}
 
 local eslint = {
-    lintCommand = "./node_modules/.bin/eslint -f unix --stdin --stdin-filename ${INPUT}",
+    formatStdin = true,
+    formatCommand = "eslint_d --fix-to-stdout --stdin --stdin-filename=${INPUT}",
+    lintSource = "eslint",
+    lintCommand = "eslint_d -f unix --stdin --stdin-filename ${INPUT}",
     lintIgnoreExitCode = true,
     lintStdin = true,
     lintFormats = {"%f:%l:%c: %m"},
-    formatCommand = "./node_modules/.bin/eslint --fix-to-stdout --stdin --stdin-filename=${INPUT}",
-    formatStdin = true
 }
 
 local tsserver_args = {}
@@ -91,21 +105,40 @@ local markdownPandocFormat = {formatCommand = 'pandoc -f markdown -t gfm -sp --t
 require"lspconfig".efm.setup {
     -- init_options = {initializationOptions},
     cmd = {DATA_PATH .. "/lspinstall/efm/efm-langserver"},
-    init_options = {documentFormatting = true, codeAction = false},
-    filetypes = {"lua", "python", "javascriptreact", "javascript", "typescript","typescriptreact","sh", "html", "css", "json", "yaml", "markdown", "vue"},
+    init_options = {documentFormatting = true},
+    root_dir = function(fname)
+        local cwd = lsp.util
+            .root_pattern("tsconfig.json")(fname) or
+            lsp.util
+            .root_pattern(".eslintrc.json", ".git")(fname) or
+            lsp.util.root_pattern("package.json", ".git/",
+                ".zshrc")(fname);
+        return cwd
+    end,
+    filetypes = {"lua", "python", "javascriptreact", "javascript", "typescript", "typescriptreact", "javascript.jsx", "typescript.tsx", "sh", "html", "css", "json", "yaml", "markdown", "vue"},
     settings = {
-        rootMarkers = {".git/"},
+        rootMarkers = { "package.json", ".git" },
+        lintDebounce = 500,
         languages = {
             python = python_arguments,
             lua = lua_arguments,
             sh = sh_arguments,
-            javascript = tsserver_args,
-            javascriptreact = tsserver_args,
-			typescript = tsserver_args,
-			typescriptreact = tsserver_args,
+            javascript = {eslint,prettier},
+            javascriptreact = {eslint,prettier},
+            typescript = {eslint,prettier},
+            typescriptreact = {eslint,prettier},
+            ["javascript.jsx"] = {eslint,prettier},
+            ["typescript.tsx"] = {eslint,prettier},
+            -- javascript = tsserver_args,
+            -- javascriptreact = tsserver_args,
+            -- typescript = tsserver_args,
+            -- typescriptreact = tsserver_args,
+            -- ["javascript.jsx"] = tsserver_args,
+            -- ["typescript.tsx"] = tsserver_args,
             html = {prettier},
             css = {prettier},
             json = {prettier},
+            jsonc = {prettier},
             yaml = {prettier},
             markdown = {markdownPandocFormat}
             -- javascriptreact = {prettier, eslint},
@@ -115,5 +148,3 @@ require"lspconfig".efm.setup {
     }
 }
 
--- Also find way to toggle format on save
--- maybe this will help: https://superuser.com/questions/439078/how-to-disable-autocmd-or-augroup-in-vim
