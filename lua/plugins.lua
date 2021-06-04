@@ -87,8 +87,8 @@ return require("packer").startup(function(use)
     use {"glepnir/galaxyline.nvim", opt = true}
     -- use {"romgrk/barbar.nvim", opt = true} -- TODO: barbar
 
-    -- Zen Mode
-    use {"Pocco81/TrueZen.nvim", opt = true}
+    -- -- Zen Mode
+    -- use {"Pocco81/TrueZen.nvim", opt = true}
 
     require_plugin("nvim-lspconfig")
     require_plugin("lspsaga.nvim")
@@ -118,7 +118,7 @@ return require("packer").startup(function(use)
     require_plugin("galaxyline.nvim")
     -- require_plugin("barbar.nvim")  -- TODO: barbar
     require_plugin('lsp-rooter.nvim')
-    require_plugin("TrueZen.nvim")
+    -- require_plugin("TrueZen.nvim")
     require_plugin("nvim-ts-context-commentstring")
 
     -- Extras
@@ -198,6 +198,9 @@ return require("packer").startup(function(use)
 
     use {'tpope/vim-surround', opt = true}                   -- manage matching words/symbols
     require_plugin('vim-surround')
+
+    use {"folke/zen-mode.nvim",opt = true}
+    require_plugin('zen-mode.nvim')
 
     -- CHEATSHEET
     use {'sudormrfbin/cheatsheet.nvim', opt = true}

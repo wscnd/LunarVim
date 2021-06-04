@@ -161,12 +161,12 @@ local mappings = {
     S = {name = "+Session", s = {"<cmd>SessionSave<cr>", "Save Session"}, l = {"<cmd>SessionLoad<cr>", "Load Session"}},
 
     -- extras
-    z = {
-        name = "+Zen",
-        s = {"<cmd>TZBottom<cr>", "toggle status line"},
-        t = {"<cmd>TZTop<cr>", "toggle tab bar"},
-        z = {"<cmd>TZAtaraxis<cr>", "toggle zen"},
-    },
+    -- z = {
+    --     name = "+Zen",
+    --     s = {"<cmd>TZBottom<cr>", "toggle status line"},
+    --     t = {"<cmd>TZTop<cr>", "toggle tab bar"},
+    --     z = {"<cmd>TZAtaraxis<cr>", "toggle zen"},
+    -- },
 
 
 
@@ -238,6 +238,10 @@ vim.api.nvim_set_keymap('t', '<leader>vt', '<C-\\><C-n><CMD>lua require("FTerm")
 vim.api.nvim_set_keymap('n', '<leader>vz', '<C-O>:set spell!<cr>',{ noremap = true, silent = true })
 -- hop to word
 vim.api.nvim_set_keymap('n', '<Leader>h', ':HopPattern<CR>', {noremap = true, silent = true})
+
+-- zen
+
+vim.api.nvim_set_keymap('n', '<Leader>z', ':ZenMode<CR>', {noremap = true, silent = true})
 
 -- cheatsheet
 vim.api.nvim_set_keymap('n', '<leader>?', ':Cheatsheet!<cr>', { noremap = true, silent = true })
