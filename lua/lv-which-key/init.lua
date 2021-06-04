@@ -181,6 +181,7 @@ local mappings = {
         O = {"<cmd>BufferLineSortByDirectory<cr>", "Order By Directory"},
         k = {"<cmd>BufferLineMoveNext<cr>", "Move Left"},
         j = {"<cmd>BufferLineMovePrev<cr>", "Move Right"},
+        D = {"<cmd>bo :%bd|e#|bd#<cr>|'\"", "Close all but current"}
     },
 
     f = {
