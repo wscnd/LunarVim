@@ -62,4 +62,12 @@ vim.cmd([[ let g:clipboard = {    'name': 'win32yank-wsl',    'copy': {       '+
 vim.cmd('set showmatch')
 vim.cmd('set autoread')
 vim.cmd('set spelllang=en_us')
+vim.cmd('set guicursor=i:ver1')
+vim.cmd('set guicursor+=a:blinkon1')
 -- vim.cmd("set spell")
+--  trigger `autoread` when files changes on disk
+-- notification after file change
+vim.cmd([[
+      autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
+      autocmd FileChangedShellPost * echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+]])

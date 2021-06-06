@@ -152,6 +152,8 @@ local mappings = {
         q = {"<cmd>Telescope quickfix<cr>", "Quickfix"},
         r = {"<cmd>Telescope registers<cr>", "Registers"},
         t = {"<cmd>TodoTelescope<cr>", "Todos"},
+        s = {"<cmd>SymbolsOutline<cr>", "Symbols"},
+        j = {"<cmd>Telescope jumplist<cr>", "Jumplist"},
         W = {"viw:lua require('spectre').open_visual()<CR>", "Current word"},
         -- W = {"<cmd>Telescope live_grep<cr>", "Word"},
         w = {"<cmd>lua require('telescope.builtin').grep_string({search= vim.fn.input('   Grep For >  ')})<cr>", "Word"}
@@ -159,12 +161,12 @@ local mappings = {
     S = {name = "+Session", s = {"<cmd>SessionSave<cr>", "Save Session"}, l = {"<cmd>SessionLoad<cr>", "Load Session"}},
 
     -- extras
-    z = {
-        name = "+Zen",
-        s = {"<cmd>TZBottom<cr>", "toggle status line"},
-        t = {"<cmd>TZTop<cr>", "toggle tab bar"},
-        z = {"<cmd>TZAtaraxis<cr>", "toggle zen"},
-    },
+    -- z = {
+    --     name = "+Zen",
+    --     s = {"<cmd>TZBottom<cr>", "toggle status line"},
+    --     t = {"<cmd>TZTop<cr>", "toggle tab bar"},
+    --     z = {"<cmd>TZAtaraxis<cr>", "toggle zen"},
+    -- },
 
 
 
@@ -179,12 +181,15 @@ local mappings = {
         O = {"<cmd>BufferLineSortByDirectory<cr>", "Order By Directory"},
         k = {"<cmd>BufferLineMoveNext<cr>", "Move Left"},
         j = {"<cmd>BufferLineMovePrev<cr>", "Move Right"},
+        D = {"<cmd>bo :%bd|e#|bd#<cr>|'\"", "Close all but current"}
     },
 
     f = {
         name = "+File",
         h = {"<cmd>Telescope oldfiles<cr>", "Recent Files"},
         s = {"<cmd>Telescope find_files<cr>", "Search Files"},
+        m = {"<cmd>MarkdownPreview<cr>", "MarkdownPreview Start"},
+        M = {"<cmd>MarkdownPreviewStop<cr>", "MarkdownPreview Stop"},
     },
 
     -- TODO: Plugin trouble
@@ -220,11 +225,9 @@ local mappings = {
         name = "+WorkBench",
         a = {"<cmd>WorkbenchAddCheckbox<cr>", "Add Checkbox"},
         b = {"<cmd>WorkbenchBranchToggle<cr>", "Branch Toggle"},
-        c = {"<cmd>WorkbenchCheckboxToggle<cr>", "Checkbox Toggle"},
+        t = {"<cmd>WorkbenchCheckboxToggle<cr>", "Checkbox Toggle"},
         l = {"<cmd>WorkbenchToggle<cr>", "Workbench Toggle"},
         p = {"<cmd>WorkbenchProjectToggle<cr>", "Project Toggle"},
-        m = {"<cmd>MarkdownPreview<cr>", "MarkdownPreview Start"},
-        M = {"<cmd>MarkdownPreviewStop<cr>", "MarkdownPreview Stop"},
     },
 
 
@@ -236,6 +239,10 @@ vim.api.nvim_set_keymap('t', '<leader>vt', '<C-\\><C-n><CMD>lua require("FTerm")
 vim.api.nvim_set_keymap('n', '<leader>vz', '<C-O>:set spell!<cr>',{ noremap = true, silent = true })
 -- hop to word
 vim.api.nvim_set_keymap('n', '<Leader>h', ':HopPattern<CR>', {noremap = true, silent = true})
+
+-- zen
+
+vim.api.nvim_set_keymap('n', '<Leader>z', ':ZenMode<CR>', {noremap = true, silent = true})
 
 -- cheatsheet
 vim.api.nvim_set_keymap('n', '<leader>?', ':Cheatsheet!<cr>', { noremap = true, silent = true })
