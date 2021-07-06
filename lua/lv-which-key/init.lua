@@ -186,8 +186,9 @@ local mappings = {
 
     f = {
         name = "+File",
-        h = {"<cmd>Telescope oldfiles<cr>", "Recent Files"},
-        s = {"<cmd>Telescope find_files<cr>", "Search Files"},
+        f = {"<cmd>Telescope oldfiles<cr>", "Recent Files"},
+        q = {"<cmd>Telescope find_files<cr>", "Search Files"},
+        s = {"<cmd>:w<cr>", "Save"},
         m = {"<cmd>MarkdownPreview<cr>", "MarkdownPreview Start"},
         M = {"<cmd>MarkdownPreviewStop<cr>", "MarkdownPreview Stop"},
     },
