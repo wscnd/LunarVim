@@ -360,4 +360,7 @@ return require("packer").startup(function(use)
   for _, plugin in pairs(O.user_plugins) do
     packer.use(plugin)
   end
+
+  require "lv-user"
+
 end)
